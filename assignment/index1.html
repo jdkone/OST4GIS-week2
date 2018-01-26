@@ -57,66 +57,25 @@
 
       var jsonToCsv = function(json) { console.log(json); };
 
-      var jsonToCsv = [];
-
-      var long = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(long.push(jsonToCsv[i][0]));
-      }
-      var lat = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(lat.push(jsonToCsv[i][1]));
-      }
-
-      var id = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(id.push(jsonToCsv[i][2]));
-      }
-
-      var name = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(name.push(jsonToCsv[i][3]));
+      for (var i=0; i<healthCenters.length; i++) {
+         var long = healthCenters[i]["LNG"];
+         var lat = healthCenters[i]["LAT"];
+         //var id = healthCenters[i][2];
+         var name = healthCenters[i]["NAME"];
+         //var org = healthCenters[i][4];
+         /*var zip = healthCenters[i][5];
+         var phone = healthCenters[i][6];
+         var website = healthCenters[i][7];
+         var dentalPhone = healthCenters[i][8];
+         var address = healthCenters[i][9];
+         */console.log(lat, long);
+         if (long != null || lat != null) {var marker = new L.Marker(lat,long);
+         map.addLayer(marker);
+         marker.bindPopup(name);
+       }
       }
 
-      var org = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(org.push(jsonToCsv[i][4]));
-      }
 
-      var zip = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(zip.push(jsonToCsv[i][5]));
-      }
-
-      var phone = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(phone.push(jsonToCsv[i][6]));
-      }
-
-      var website = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(website.push(jsonToCsv[i][7]));
-      }
-
-      var dentalPhone = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(dentalPhone.push(jsonToCsv[i][8]));
-      }
-
-      var address = [];
-      for (let i = 0; i<jsonToCsv.length; i++) {
-       console.log(address.push(jsonToCsv[i][9]));
-      }
-
-      var healthData = [long, lat, id, name, org, zip,
-        phone, website, dentalPhone, address, healthData];
-
-      console.log(healthData);
-
-      var addMarkers = function(map) {};
-
-      L.marker(healthData[[0],[1]]).addTo(map);
-      marker.bindPopup(healthDatat[3]).openPopup();
 
       /* =====================
 
@@ -124,9 +83,6 @@
 
       ===================== */
 
-
-      jsonToCsv(healthCenters);
-      addMarkers(map);
     </script>
     <!--Your code ends here-->
   </body>
